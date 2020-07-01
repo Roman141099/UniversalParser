@@ -45,8 +45,14 @@ Project Testing Steps :
     `Document document = Jsoup.parse(new File(EXAMPLE_1_PATH), "UTF-8");`(line 31).<br/>
     You can substitute your path to the file instead of the *EXAMPLE_1_PATH*, 
     which is intended for testing already downloaded *HTML* page. If you want parse 
-    *HTML* page by using *URL* you should comment previous line and uncomment this line :<br/>
-    `Document document = Jsoup.connect(EXAMPLE_1).userAgent("Chrome").timeout(5000).get();`(line 28) where you can substitute *URL* you want instead of *EXAMPLE_1*.  
+    *HTML* page by using *URL* you should comment previous line and uncomment these lines :<br/>
+    ```
+   Connection connection = Jsoup.connect(EXAMPLE_1);
+   connection.userAgent("Chrome");
+   connection.timeout(5000);
+   Document document = connection.get();
+   ```
+   (lines 26-29) where you can substitute *URL* you want instead of *EXAMPLE_1*.  
 2. Run program
 
 Project made by Roman Grigoriev<br/>
